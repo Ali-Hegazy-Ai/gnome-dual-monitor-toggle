@@ -11,5 +11,10 @@
       <summary>Selected monitor setting</summary>
       <description>Stores the connector name of the monitor chosen in the quick toggle (e.g. HDMI-1, DP-2).</description>
     </key>
+    <key name="debug-logging" type="b">
+      <default>false</default>
+      <summary>Enable debug logging</summary>
+      <description>When enabled, detailed structured logs are written to the journal for developer debugging. Use: gsettings set org.gnome.shell.extensions.dual-monitor-toggle debug-logging true</description>
+    </key>
   </schema>
 </schemalist>

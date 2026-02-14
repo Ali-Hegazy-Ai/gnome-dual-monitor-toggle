@@ -8,7 +8,12 @@ Dual Monitor Toggle is a GNOME Shell extension that allows you to easily enable 
 - Automatically detects connected monitors and their configurations
 - Provides a visual indication of the current state of your secondary monitor
 - Supports multiple monitor configurations
-- Easy to install and use
+- Preserves monitor positions, scale, and arrangement on toggle
+- Restores the original primary monitor when re-enabling
+- Choose between Temporary (resets on reboot) and Persistent (survives reboot) configuration modes
+- Optionally set a re-enabled monitor as primary
+- Falls back to `~/.config/monitors.xml` when no runtime layout is available
+- Optional structured debug logging for troubleshooting
 
 ## Installation
 
@@ -17,7 +22,7 @@ Dual Monitor Toggle is a GNOME Shell extension that allows you to easily enable 
    - For local user installation: `~/.local/share/gnome-shell/extensions/`
    - For system-wide installation: `/usr/share/gnome-shell/extensions/`
 3. Log out and log back in, or restart GNOME Shell by pressing `Alt`+`F2`, typing `r`, and pressing `Enter`.
-4. Enable the extension
+4. Enable the extension using the Extensions app or the `gnome-extensions` command.
 
 ## Usage
 
@@ -32,7 +37,12 @@ If you encounter any issues with the extension, please try the following:
 1. Make sure that your system meets the requirements for running GNOME Shell extensions.
 2. Disable and re-enable the extension using the Extensions app or the `gnome-extensions` command.
 3. Restart GNOME Shell by pressing `Alt`+`F2`, typing `r`, and pressing `Enter`.
-4. If the issue persists, please open an issue on the [GitHub issue tracker](https://github.com/poka-IT/gnome-dual-monitor-toggle/issues) with a detailed description of the problem and any relevant error messages.
+4. Enable debug logging for detailed diagnostics:
+   ```bash
+   gsettings set org.gnome.shell.extensions.dual-monitor-toggle debug-logging true
+   journalctl --user -f -o cat | grep DualMonitorToggle
+   ```
+5. If the issue persists, please open an issue on the [GitHub issue tracker](https://github.com/poka-IT/gnome-dual-monitor-toggle/issues) with a detailed description of the problem and any relevant error messages or debug logs.
 
 ## Contributing
 
