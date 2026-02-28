@@ -1,0 +1,4 @@
+# Extension packaging artifacts
+__MACOSX/
+schemas/gschemas.compiled
+*.zip

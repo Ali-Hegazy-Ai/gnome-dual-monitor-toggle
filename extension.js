@@ -1,7 +1,7 @@
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import { Extension } from 'resource:///org/gnome/shell/extensions/extension.js';
 import { SecondMonitorIndicator } from './lib/indicator.js';
-import { initLogger } from './lib/logger.js';
+import { initLogger, shutdownLogger } from './lib/logger.js';
 
 // All other classes, constants, and most imports have been moved to their respective files:
 // - dbusService.js: DBus related constants and proxy.
@@ -24,6 +24,7 @@ export default class DualMonitorExtension extends Extension {
             this._indicator.destroy();
             this._indicator = null;
         }
+        shutdownLogger();
         this._settings = null;
     }
 }
